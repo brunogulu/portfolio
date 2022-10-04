@@ -1,15 +1,11 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Contacto, Habilidades, Inicio, SobreMi } from '../pages';
+import { PortfolioPage } from '../pages/PortfolioPage';
 
 export const PortfolioRoutes = () => {
    return (
       <Routes>
-         <Route path="inicio" element={<Inicio />}></Route>
-         <Route path="sobremi" element={<SobreMi />}></Route>
-         <Route path="habilidades" element={<Habilidades />}></Route>
-         <Route path="contacto" element={<Contacto />}></Route>
-
-         <Route path="/*" element={<Navigate to="/inicio" />} />
+         <Route path="/" element={<PortfolioPage />} />
+         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
    );
 };
