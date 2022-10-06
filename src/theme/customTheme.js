@@ -57,23 +57,23 @@ const customTheme = createTheme({
          letterSpacing: '0.02em',
          lineHeight: '5rem',
          fontFamily: '"Fira Sans"',
-         fontSize: '1.13rem',
+         fontSize: '1.05rem',
          fontWeight: '300',
          textTransform: 'uppercase',
       },
 
       logo: {
-         letterSpacing: '-0.075em',
+         letterSpacing: '-0.06em',
          fontFamily: 'Montserrat',
-         fontSize: '1.5rem',
+         fontSize: '1.45rem',
          fontWeight: '700',
       },
 
       footer: {
          color: 'rgba(255, 255, 255, 0.75)',
-         fontFamily: '"Playfair Display"',
-         fontSize: '0.85rem',
-         fontWeight: '400',
+         fontFamily: 'Montserrat',
+         fontSize: '0.78rem',
+         fontWeight: '300',
       },
    },
 
@@ -86,6 +86,22 @@ const customTheme = createTheme({
          light: '#fff',
          main: '#fff',
          dark: '#000',
+      },
+   },
+
+   components: {
+      MuiButtonBase: {
+         defaultProps: {
+            disableRipple: true,
+         },
+      },
+
+      MuiSvgIcon: {
+         defaultProps: {
+            height: '100%',
+            fontSize: 'inherit',
+            shapeRendering: 'geometricPrecision',
+         },
       },
    },
 });

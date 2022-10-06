@@ -25,7 +25,18 @@ li {
 }
 
 a {
+   line-height: 1rem;
+   font-size: 1.875rem;
    text-decoration: none;
+
+   svg {
+      opacity: 0.75;
+      transition: opacity 1s ease-in;
+
+      &:hover {
+         opacity: 1;
+      }
+   }
 }
 
 img,

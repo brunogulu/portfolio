@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import { Box, SvgIcon, Tab, Tabs, Typography } from '@mui/material';
-import BPLogo from '../../assets/bp_logo.svg';
+import { Box, Tab, Tabs, Typography } from '@mui/material';
+import { Logo } from '../../assets';
 
 export const Navbar = () => {
    // Enlaces
@@ -23,7 +23,7 @@ export const Navbar = () => {
       p: '0',
       typography: 'navLinks',
       '&.Mui-selected': {
-         fontWeight: '500',
+         fontWeight: '400',
       },
    };
 
@@ -38,11 +38,10 @@ export const Navbar = () => {
             px: '3.4rem',
          }}
       >
-         <SvgIcon>
-            <BPLogo />
-         </SvgIcon>
-
-         <Typography sx={{ typography: 'logo' }}>Bruno.</Typography>
+         <Box alignItems="center" display="flex">
+            <Logo fill="white" width="52px" />
+            <Typography sx={{ ml: '1.25rem', typography: 'logo' }}>Bruno.</Typography>
+         </Box>
 
          <Box
             alignItems="center"
