@@ -1,16 +1,17 @@
-import { Box, Button, ButtonGroup, Stack, Typography } from '@mui/material';
+import { Box, Stack, Tooltip, Typography } from '@mui/material';
 import { GitHub, Instagram, LinkedIn } from '@mui/icons-material';
 
 export const Footer = () => {
-   const btnStyle = {
-      m: '0',
-      p: '0',
+   const social = {
+      instagram: 'brunopittilini_',
+      github: 'brunogulu',
+      linkedin: 'bipittilini',
    };
 
    return (
       <Box
-         display="flex"
          component="footer"
+         display="flex"
          sx={{
             background: 'none',
             height: '55px',
@@ -23,16 +24,22 @@ export const Footer = () => {
             © {new Date().getFullYear()} - Bruno Pittilini. Todos los derechos reservados.
          </Typography>
 
-         <Stack direction="row" spacing="2.2rem">
-            <a href="https://www.instagram.com">
-               <Instagram />
-            </a>
-            <a href="https://www.linkedin.com">
-               <LinkedIn />
-            </a>
-            <a href="https://github.com/">
-               <GitHub />
-            </a>
+         <Stack direction="row" spacing="2rem">
+            <Tooltip title="Instagram" arrow>
+               <a href={`https://www.instagram.com/${social.instagram}`}>
+                  <Instagram />
+               </a>
+            </Tooltip>
+            <Tooltip title="LinkedIn" arrow>
+               <a href={`https://www.linkedin.com/in/${social.linkedin}`}>
+                  <LinkedIn />
+               </a>
+            </Tooltip>
+            <Tooltip title="GitHub" arrow>
+               <a href={`https://github.com/${social.github}`}>
+                  <GitHub />
+               </a>
+            </Tooltip>
          </Stack>
       </Box>
    );

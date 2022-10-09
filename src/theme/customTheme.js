@@ -78,10 +78,6 @@ const customTheme = createTheme({
    },
 
    palette: {
-      background: {
-         dark: 'none',
-         // dark: '#000',
-      },
       primary: {
          light: '#fff',
          main: '#fff',
@@ -98,9 +94,33 @@ const customTheme = createTheme({
 
       MuiSvgIcon: {
          defaultProps: {
-            height: '100%',
-            fontSize: 'inherit',
+            fontSize: '30',
+            opacity: '0.75',
             shapeRendering: 'geometricPrecision',
+            sx: {
+               '&:hover': {
+                  opacity: 1,
+               },
+            },
+         },
+      },
+
+      MuiTooltip: {
+         defaultProps: {
+            componentsProps: {
+               tooltip: {
+                  sx: {
+                     bgcolor: 'primary.light',
+                     color: 'primary.dark',
+                  },
+               },
+
+               arrow: {
+                  sx: {
+                     color: 'primary.light',
+                  },
+               },
+            },
          },
       },
    },
