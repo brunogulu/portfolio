@@ -1,7 +1,5 @@
 import { createTheme } from '@mui/material/styles';
 
-const green = '#B6EE97';
-
 const customTheme = createTheme({
    typography: {
       fontFamily: [
@@ -14,10 +12,15 @@ const customTheme = createTheme({
       ].join(','),
 
       h1: {
-         fontSize: '5.3rem',
+         fontFamily: 'Montserrat',
+         fontSize: '5.25rem',
          fontWeight: '700',
-         letterSpacing: '-0.04em',
+         letterSpacing: '-0.06em',
          lineHeight: '5.6rem',
+         '@media (max-width:900px)': {
+            fontSize: '3.6rem',
+            lineHeight: '3.3rem',
+         },
       },
 
       h2: {
@@ -28,10 +31,9 @@ const customTheme = createTheme({
       },
 
       h3: {
-         fontFamily: '"Playfair Display"',
-         fontSize: '1.88rem',
+         fontFamily: 'Montserrat',
+         fontSize: '1.5rem',
          fontWeight: '400',
-         letterSpacing: '0.03em',
       },
 
       subtitle1: {
@@ -48,8 +50,10 @@ const customTheme = createTheme({
       },
 
       button: {
+         color: '#fff',
+         fontFamily: 'Montserrat',
          fontWeight: '400',
-         fontSize: '1.13rem',
+         fontSize: '0.95rem',
       },
 
       navLinks: {
@@ -89,19 +93,6 @@ const customTheme = createTheme({
       MuiButtonBase: {
          defaultProps: {
             disableRipple: true,
-         },
-      },
-
-      MuiSvgIcon: {
-         defaultProps: {
-            fontSize: '30',
-            opacity: '0.75',
-            shapeRendering: 'geometricPrecision',
-            sx: {
-               '&:hover': {
-                  opacity: 1,
-               },
-            },
          },
       },
 

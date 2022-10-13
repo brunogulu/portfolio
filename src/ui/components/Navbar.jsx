@@ -3,17 +3,18 @@ import { useState } from 'react';
 import { Box, Tab, Tabs, Typography } from '@mui/material';
 import { Logo } from '../../assets';
 
-export const Navbar = () => {
+export const Navbar = ({ getIndex }) => {
    // Enlaces
    const linksArray = ['inicio', 'sobre mí', 'habilidades', 'contacto'];
 
    // Index de la etiqueta <Tab /> correspondiente
-   const [value, setValue] = useState(0);
+   const [tabIndex, setTabIndex] = useState(0);
 
    // Evento de <Tabs />
-   const handleChange = (event, newValue) => {
+   const handleChange = (event, newNavIndex) => {
       event.preventDefault();
-      setValue(newValue);
+      setTabIndex(newNavIndex);
+      getIndex(newNavIndex);
    };
 
    // Estilo personalizado de <Tab />
@@ -52,7 +53,7 @@ export const Navbar = () => {
             }}
          >
             <Tabs
-               value={value}
+               value={tabIndex}
                sx={{ '& .MuiTabs-indicator': { height: '4px' } }}
                onChange={handleChange}
             >

@@ -8,6 +8,17 @@ export const Footer = () => {
       linkedin: 'bipittilini',
    };
 
+   const btnSocialStyle = {
+      fontSize: '30',
+      opacity: '0.75',
+      shapeRendering: 'geometricPrecision',
+      sx: {
+         ['&:hover']: {
+            opacity: 1,
+         },
+      },
+   };
+
    return (
       <Box
          component="footer"
@@ -24,20 +35,20 @@ export const Footer = () => {
             © {new Date().getFullYear()} - Bruno Pittilini. Todos los derechos reservados.
          </Typography>
 
-         <Stack direction="row" spacing="2rem">
+         <Stack direction="row" spacing="1.8rem">
             <Tooltip title="Instagram" arrow>
                <a href={`https://www.instagram.com/${social.instagram}`}>
-                  <Instagram />
+                  <Instagram {...btnSocialStyle} />
                </a>
             </Tooltip>
             <Tooltip title="LinkedIn" arrow>
                <a href={`https://www.linkedin.com/in/${social.linkedin}`}>
-                  <LinkedIn />
+                  <LinkedIn {...btnSocialStyle} />
                </a>
             </Tooltip>
             <Tooltip title="GitHub" arrow>
                <a href={`https://github.com/${social.github}`}>
-                  <GitHub />
+                  <GitHub {...btnSocialStyle} />
                </a>
             </Tooltip>
          </Stack>
