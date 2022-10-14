@@ -3,8 +3,8 @@ import { createTheme } from '@mui/material/styles';
 const customTheme = createTheme({
    typography: {
       fontFamily: [
-         '"Fira Sans"',
          'Montserrat',
+         '"Fira Sans"',
          '"Playfair Display"',
          '"Helvetica Neue"',
          'Arial',
@@ -12,7 +12,6 @@ const customTheme = createTheme({
       ].join(','),
 
       h1: {
-         fontFamily: 'Montserrat',
          fontSize: '5.25rem',
          fontWeight: '700',
          letterSpacing: '-0.06em',
@@ -31,7 +30,6 @@ const customTheme = createTheme({
       },
 
       h3: {
-         fontFamily: 'Montserrat',
          fontSize: '1.5rem',
          fontWeight: '400',
       },
@@ -51,7 +49,6 @@ const customTheme = createTheme({
 
       button: {
          color: '#fff',
-         fontFamily: 'Montserrat',
          fontWeight: '400',
          fontSize: '0.95rem',
       },
@@ -68,14 +65,12 @@ const customTheme = createTheme({
 
       logo: {
          letterSpacing: '-0.06em',
-         fontFamily: 'Montserrat',
          fontSize: '1.45rem',
          fontWeight: '700',
       },
 
       footer: {
          color: 'rgba(255, 255, 255, 0.75)',
-         fontFamily: 'Montserrat',
          fontSize: '0.78rem',
          fontWeight: '300',
       },
@@ -83,6 +78,7 @@ const customTheme = createTheme({
 
    palette: {
       primary: {
+         custom: '#662CC6',
          light: '#fff',
          main: '#fff',
          dark: '#000',
@@ -101,14 +97,14 @@ const customTheme = createTheme({
             componentsProps: {
                tooltip: {
                   sx: {
-                     bgcolor: 'primary.light',
+                     bgcolor: 'primary.main',
                      color: 'primary.dark',
                   },
                },
 
                arrow: {
                   sx: {
-                     color: 'primary.light',
+                     color: 'primary.main',
                   },
                },
             },

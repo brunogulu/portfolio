@@ -14,7 +14,7 @@ export const Footer = () => {
       shapeRendering: 'geometricPrecision',
       sx: {
          ['&:hover']: {
-            opacity: 1,
+            opacity: '1',
          },
       },
    };

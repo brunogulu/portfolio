@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import { Box, Tab, Tabs, Typography } from '@mui/material';
+import { alpha, Box, Tab, Tabs, Typography } from '@mui/material';
 import { Logo } from '../../assets';
+import customTheme from '../../theme/customTheme';
 
 export const Navbar = ({ getIndex }) => {
    // Enlaces
@@ -16,6 +17,9 @@ export const Navbar = ({ getIndex }) => {
       setTabIndex(newNavIndex);
       getIndex(newNavIndex);
    };
+
+   // Paleta de colores primaria
+   const color = customTheme.palette.primary;
 
    // Estilo personalizado de <Tab />
    const tabStyle = {
@@ -34,8 +38,8 @@ export const Navbar = ({ getIndex }) => {
          display="flex"
          justifyContent="space-between"
          sx={{
-            bgcolor: 'rgba(0, 0, 0, 0.6)',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+            bgcolor: `${alpha(color.dark, 0.6)}`,
+            borderBottom: `1px solid ${alpha(color.main, 0.1)}`,
             px: '3.4rem',
          }}
       >
