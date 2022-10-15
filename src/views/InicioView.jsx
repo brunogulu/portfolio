@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material';
+import { alpha, Box, Button, Typography } from '@mui/material';
 import { FileDownloadOutlined } from '@mui/icons-material';
 import customTheme from '../theme/customTheme';
 
@@ -16,7 +16,7 @@ export const InicioView = () => {
          <Typography variant="h3" sx={{ mt: '3.1rem' }}>
             Diseño UX/UI.
             <br />
-            Desarrollo y despliegue de 
+            Desarrollo y despliegue de
             <br />
             aplicaciones React/Redux.
          </Typography>
@@ -24,16 +24,21 @@ export const InicioView = () => {
          <Button
             aria-label="download curriculum"
             disableRipple={false}
-            startIcon={<FileDownloadOutlined size="large" />}
+            startIcon={<FileDownloadOutlined size="large" sx={{ fill: 'white' }} />}
             sx={{
-               bgcolor: 'none',
+               bgcolor: `${alpha(color.dark, 0.6)}`,
                border: `1px solid ${color.custom}`,
                borderRadius: '0',
+               boxShadow: `-10px 10px 0 0 ${color.custom}`,
                height: '70px',
+               ml: '10px',
                mt: '4rem',
                width: '251px',
                '&:hover': {
-                  bgcolor: 'primary.custom',
+                  bgcolor: `${alpha(color.dark, 0.6)}`,
+                  boxShadow: 'none',
+                  transform: 'translate(-10px, 10px)',
+                  transition: 'all 0.2s ease 0s',
                },
             }}
          >

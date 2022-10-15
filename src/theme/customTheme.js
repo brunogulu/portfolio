@@ -48,7 +48,7 @@ const customTheme = createTheme({
       },
 
       button: {
-         color: '#fff',
+         color: 'white',
          fontWeight: '400',
          fontSize: '0.95rem',
       },
