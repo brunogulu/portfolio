@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@0;1&display=swap');
 
 $green-color: #b6ee97;
+$custom-color: #662cc6;
 
 :root {
    font-synthesis: none;
@@ -28,6 +29,36 @@ a {
    line-height: 1rem;
    font-size: 1.875rem;
    text-decoration: none;
+}
+
+.divider {
+   background-color: white;
+   border: 0px solid #662cc6;
+   border-color: $custom-color;
+   border-right-width: 10px;
+   height: 6px;
+   margin-top: 1.5rem;
+   width: 90px;
+}
+
+.rombo {
+   z-index: -1;
+   border-radius: 0.6rem;
+   height: 89px;
+   position: absolute;
+   top: 0;
+   transform: rotate(45deg);
+   width: 89px;
+}
+
+.rombo-1 {
+   background-color: rgba($color: $custom-color, $alpha: 0.4);
+   left: -44.5px;
+}
+
+.rombo-2 {
+   background-color: rgba($color: #fff, $alpha: 0.08);
+   left: -34.5px;
 }
 
 video {

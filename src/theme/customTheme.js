@@ -5,7 +5,7 @@ const customTheme = createTheme({
       fontFamily: [
          'Montserrat',
          '"Fira Sans"',
-         '"Playfair Display"',
+         '"Old Standard TT"',
          '"Helvetica Neue"',
          'Arial',
          'sans-serif',
@@ -35,22 +35,24 @@ const customTheme = createTheme({
       },
 
       subtitle1: {
-         fontFamily: '"Playfair Display"',
-         fontSize: '1.9rem',
+         fontFamily: '"Old Standard TT"',
+         fontSize: '2rem',
          fontWeight: '400',
       },
 
       body1: {
-         fontSize: '1.13rem',
+         fontFamily: '"Fira Sans"',
+         fontSize: '1rem',
          fontStyle: 'italic',
-         fontWeight: '400',
-         lineHeight: '1.5rem',
+         lineHeight: '1.3rem',
       },
 
       button: {
          color: 'white',
-         fontWeight: '400',
-         fontSize: '0.95rem',
+         fontFamily: '"Fira Sans"',
+         fontWeight: '600',
+         fontSize: '1rem',
+         letterSpacing: '0.03em'
       },
 
       navLinks: {
@@ -65,12 +67,14 @@ const customTheme = createTheme({
 
       logo: {
          letterSpacing: '-0.06em',
+         fontFamily: 'Montserrat',
          fontSize: '1.45rem',
          fontWeight: '700',
       },
 
       footer: {
          color: 'rgba(255, 255, 255, 0.75)',
+         fontFamily: 'Montserrat',
          fontSize: '0.78rem',
          fontWeight: '300',
       },

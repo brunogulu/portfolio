@@ -22,7 +22,7 @@ export const InicioView = () => {
          </Typography>
 
          <Button
-            aria-label="download curriculum"
+            aria-label="descargar curriculum"
             disableRipple={false}
             startIcon={<FileDownloadOutlined size="large" sx={{ fill: 'white' }} />}
             sx={{
