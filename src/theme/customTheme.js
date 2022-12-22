@@ -1,5 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 
+// const customColor = '#4127E0';   // Cambiar también en styles.scss
+const customColor = '#DA0F34';   // Cambiar también en styles.scss
+
 const customTheme = createTheme({
    typography: {
       fontFamily: [
@@ -35,6 +38,7 @@ const customTheme = createTheme({
       },
 
       subtitle1: {
+         lineHeight: '3rem',
          fontFamily: '"Old Standard TT"',
          fontSize: '2rem',
          fontWeight: '400',
@@ -50,9 +54,9 @@ const customTheme = createTheme({
       button: {
          color: 'white',
          fontFamily: '"Fira Sans"',
-         fontWeight: '600',
-         fontSize: '1rem',
-         letterSpacing: '0.03em'
+         fontWeight: '200',
+         fontSize: '0.97rem',
+         letterSpacing: '0.04em'
       },
 
       navLinks: {
@@ -82,7 +86,7 @@ const customTheme = createTheme({
 
    palette: {
       primary: {
-         custom: '#662CC6',
+         custom: customColor,
          light: '#fff',
          main: '#fff',
          dark: '#000',

@@ -1,18 +1,16 @@
-import { Box, Typography } from '@mui/material';
 import React from 'react';
+import { Presentation } from '../ui/components/Presentation';
+import { Box, Typography } from '@mui/material';
 
-export const SobreMiView = () => {
+export const SobreMiView = ({ viewBoxStyle }) => {
+   const data = {
+      title: 'Sobre mí',
+      subtitle: 'Descubre quién soy y a qué me dedico.',
+   };
+
    return (
-      <Box sx={{ maxWidth: '900px', my: '4rem', width: '60%' }}>
-         <Box sx={{ position: 'relative' }}>
-            <Typography variant="h1">Sobre mí</Typography>
-            <div className="rombo rombo-2"></div>
-            <div className="rombo rombo-1"></div>
-         </Box>
-         <div className="divider"></div>
-         <Typography variant="subtitle1" sx={{ mt: '40px' }}>
-            Descubre quién soy y a qué me dedico.
-         </Typography>
+      <Box sx={{ ...viewBoxStyle }}>
+         <Presentation title={data.title} subtitle={data.subtitle} />
          <Typography variant="body1" sx={{ maxWidth: '600px', mt: '80px', textAlign: 'justify' }}>
             Mi nombre es Bruno, soy estudiante de Ingeniería en Sistemas de Información, diseñador y
             programador web autodidacta.

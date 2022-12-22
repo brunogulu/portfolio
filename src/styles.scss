@@ -3,7 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@0;1&display=swap');
 
 $green-color: #b6ee97;
-$custom-color: #662cc6;
+// $customColor: #4127E0;
+$customColor: #DA0F34;
 
 :root {
    font-synthesis: none;
@@ -33,10 +34,11 @@ a {
 
 .divider {
    background-color: white;
-   border: 0px solid #662cc6;
-   border-color: $custom-color;
+   border: 0px solid $customColor;
+   border-color: $customColor;
    border-right-width: 10px;
    height: 6px;
+   margin-left: 2rem;
    margin-top: 1.5rem;
    width: 90px;
 }
@@ -52,13 +54,17 @@ a {
 }
 
 .rombo-1 {
-   background-color: rgba($color: $custom-color, $alpha: 0.4);
+   background-color: rgba($color: $customColor, $alpha: 0.4);
    left: -44.5px;
 }
 
 .rombo-2 {
    background-color: rgba($color: #fff, $alpha: 0.08);
    left: -34.5px;
+}
+
+.accordion {
+   margin: 5rem 0;
 }
 
 video {

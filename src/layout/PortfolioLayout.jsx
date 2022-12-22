@@ -27,7 +27,7 @@ export const PortfolioLayout = ({ getData, children }) => {
             flex="1"
             flexDirection="column"
             alignItems="center"
-            justifyContent="center"
+            justifyContent="top"
          >
             {children}
          </Box>

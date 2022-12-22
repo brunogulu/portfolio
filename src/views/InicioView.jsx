@@ -1,12 +1,12 @@
-import { alpha, Box, Button, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import { FileDownloadOutlined } from '@mui/icons-material';
 import customTheme from '../theme/customTheme';
 
-export const InicioView = () => {
+export const InicioView = ({ viewBoxStyle }) => {
    const color = customTheme.palette.primary;
 
    return (
-      <Box sx={{ maxWidth: '900px', my: '4rem', width: '60%' }}>
+      <Box sx={{ ...viewBoxStyle }}>
          <Typography variant="h1">
             Hola, soy Bruno.
             <br />
@@ -26,18 +26,17 @@ export const InicioView = () => {
             disableRipple={false}
             startIcon={<FileDownloadOutlined size="large" sx={{ fill: 'white' }} />}
             sx={{
-               bgcolor: `${alpha(color.dark, 0.6)}`,
-               border: `1px solid ${color.custom}`,
+               bgcolor: `${color.custom}`,
                borderRadius: '0',
-               boxShadow: `-10px 10px 0 0 ${color.custom}`,
+               boxShadow: '7px 7px 0 0 #fff',
                height: '70px',
-               ml: '10px',
                mt: '4rem',
+               ml: '-7px',
                width: '251px',
                '&:hover': {
-                  bgcolor: `${alpha(color.dark, 0.6)}`,
+                  bgcolor: `${color.custom}`,
                   boxShadow: 'none',
-                  transform: 'translate(-10px, 10px)',
+                  transform: 'translate(5px, 5px)',
                   transition: 'all 0.2s ease 0s',
                },
             }}

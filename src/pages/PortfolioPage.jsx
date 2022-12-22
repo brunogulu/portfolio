@@ -9,17 +9,25 @@ export const PortfolioPage = () => {
       setIndex(newIndex);
    };
 
+   const viewBoxStyle = {
+      maxWidth: '900px',
+      mt: '8rem',
+      // mb: '3rem',
+      // paddingBottom: '2rem',
+      width: '60%',
+   };
+
    // Renderizar vista correspondiente al index del navbar
    const SwitchView = () => {
       switch (index) {
          case 0:
-            return <InicioView />;
+            return <InicioView viewBoxStyle={viewBoxStyle} />;
          case 1:
-            return <SobreMiView />;
+            return <SobreMiView viewBoxStyle={viewBoxStyle} />;
          case 2:
-            return <HabilidadesView />;
+            return <HabilidadesView viewBoxStyle={viewBoxStyle} />;
          case 3:
-            return <ContactoView />;
+            return <ContactoView viewBoxStyle={viewBoxStyle} />;
          default:
             return <h1>Nada que ver</h1>;
       }
