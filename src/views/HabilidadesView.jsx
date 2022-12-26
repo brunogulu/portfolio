@@ -9,11 +9,17 @@ export const HabilidadesView = ({ viewBoxStyle }) => {
       subtitle: 'Tecnologías, lenguajes y programas con los que estoy familiarizado.',
    };
 
+   const skills = {
+      programming: ['ReactJS', 'Javascript', 'Redux, React Redux, RKT Query', 'C#'],
+      design: ['SASS', 'MaterialUI', 'Figma', 'Adobe Photoshop', 'Adobe Illustrator', ''],
+      others: ['Github', 'Firebase', 'React Router', 'Axios'],
+   };
+
    return (
       <Box sx={{ ...viewBoxStyle }}>
          <Presentation title={data.title} subtitle={data.subtitle} />
 
-         <SimpleAccordion />
+         <SimpleAccordion skills={skills} />
       </Box>
    );
 };

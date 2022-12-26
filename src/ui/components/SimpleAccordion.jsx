@@ -5,7 +5,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-export default function SimpleAccordion() {
+export default function SimpleAccordion({ skills }) {
    const typographyStyle = {
       color: 'primary.light',
       fontSize: '1.125rem',
@@ -15,7 +15,7 @@ export default function SimpleAccordion() {
    };
 
    return (
-      <div className='accordion'>
+      <div className="accordion">
          <Accordion sx={{ bgcolor: '#212121' }}>
             <AccordionSummary
                expandIcon={<ExpandMoreIcon />}
@@ -26,10 +26,13 @@ export default function SimpleAccordion() {
             </AccordionSummary>
 
             <AccordionDetails sx={{ bgcolor: '#1A1A1A', padding: '1rem' }}>
-               <Typography sx={{ ...typographyStyle }}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-                  lacus ex, sit amet blandit leo lobortis eget.
-               </Typography>
+               {skills.programming.map(skill => {
+                  return (
+                     <Typography key={skill} sx={{ ...typographyStyle }}>
+                        {skill}
+                     </Typography>
+                  );
+               })}
             </AccordionDetails>
          </Accordion>
 
@@ -43,10 +46,13 @@ export default function SimpleAccordion() {
             </AccordionSummary>
 
             <AccordionDetails sx={{ bgcolor: '#1A1A1A', padding: '1rem' }}>
-               <Typography sx={{ ...typographyStyle }}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-                  lacus ex, sit amet blandit leo lobortis eget.
-               </Typography>
+               {skills.design.map(skill => {
+                  return (
+                     <Typography key={skill} sx={{ ...typographyStyle }}>
+                        {skill}
+                     </Typography>
+                  );
+               })}
             </AccordionDetails>
          </Accordion>
 
@@ -60,10 +66,13 @@ export default function SimpleAccordion() {
             </AccordionSummary>
 
             <AccordionDetails sx={{ bgcolor: '#1A1A1A', padding: '1rem' }}>
-               <Typography sx={{ ...typographyStyle }}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-                  lacus ex, sit amet blandit leo lobortis eget.
-               </Typography>
+               {skills.others.map(skill => {
+                  return (
+                     <Typography key={skill} sx={{ ...typographyStyle }}>
+                        {skill}
+                     </Typography>
+                  );
+               })}
             </AccordionDetails>
          </Accordion>
       </div>
