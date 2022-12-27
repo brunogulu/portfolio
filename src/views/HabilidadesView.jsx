@@ -10,8 +10,8 @@ export const HabilidadesView = ({ viewBoxStyle }) => {
    };
 
    const skills = {
-      programming: ['ReactJS', 'Javascript', 'Redux, React Redux, RKT Query', 'C#'],
-      design: ['SASS', 'MaterialUI', 'Figma', 'Adobe Photoshop', 'Adobe Illustrator', ''],
+      programming: ['ReactJS', 'Javascript', 'Redux, React Redux, RTK Query', 'C#'],
+      design: ['SASS', 'MaterialUI', 'Figma', 'Adobe Photoshop', 'Adobe Illustrator'],
       others: ['Github', 'Firebase', 'React Router', 'Axios'],
    };
 
