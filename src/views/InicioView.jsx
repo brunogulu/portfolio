@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, Stack, Tooltip, Typography } from '@mui/material';
 import { FileDownloadOutlined } from '@mui/icons-material';
 import customTheme from '../theme/customTheme';
 
@@ -8,29 +8,33 @@ export const InicioView = ({ viewBoxStyle }) => {
    return (
       <Box sx={{ ...viewBoxStyle }}>
          <Typography variant="h1">
-            Hola, soy Bruno.
+            Desarrollador React
             <br />
-            Bienvenido a mi sitio web personal.
+            Front-End.
          </Typography>
 
-         <Typography variant="h3" sx={{ mt: '3.1rem' }}>
-            Diseño UX/UI.
+         <Typography variant="h3" sx={{ mt: '3rem' }}>
+            Hola, mi nombre es <strong>Bruno</strong>.
             <br />
-            Desarrollo y despliegue de
+            Desarrollo y despliegue de aplicaciones
             <br />
-            aplicaciones React/Redux.
+            React con Redux.
+            <br />
+            Diseño UX / UI.
          </Typography>
 
          <Button
             aria-label="descargar curriculum"
             disableRipple={false}
-            startIcon={<FileDownloadOutlined size="large" sx={{ fill: 'white' }} />}
+            startIcon={
+               <FileDownloadOutlined size="large" sx={{ fill: 'white' }} />
+            }
             sx={{
                bgcolor: `${color.custom}`,
                borderRadius: '0',
                boxShadow: '7px 7px 0 0 #fff',
                height: '70px',
-               mt: '4rem',
+               mt: '3rem',
                ml: '-7px',
                width: '251px',
                '&:hover': {
@@ -43,6 +47,27 @@ export const InicioView = ({ viewBoxStyle }) => {
          >
             <Typography variant="button">Curriculum Vitae</Typography>
          </Button>
+
+         <Box display={'flex'} sx={{ alignItems: 'center', mt: '3.2rem' }}>
+            <Typography variant="h4">Mi Stack</Typography>
+            <Typography
+               variant="h4"
+               sx={{
+                  fontWeight: '200',
+                  fontSize: '1.2rem',
+                  ml: '1.5rem',
+                  opacity: '0.5',
+               }}
+            >
+               |
+            </Typography>
+
+            <Box display={'flex'} sx={{ alignItems: 'center' }}>
+               <Stack direction="row" spacing="1.8rem">
+                  HTML, CSS, JS, REACT, SASS
+               </Stack>
+            </Box>
+         </Box>
       </Box>
    );
 };

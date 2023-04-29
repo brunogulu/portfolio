@@ -1,7 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 
-// const customColor = '#4127E0';   // Cambiar también en styles.scss
-const customColor = '#DA0F34';   // Cambiar también en styles.scss
+const customColor = '#5D2CC6'; // Cambiar también en styles.scss
+// const customColor = '#DA0F34';   // Cambiar también en styles.scss
 
 const customTheme = createTheme({
    typography: {
@@ -15,10 +15,12 @@ const customTheme = createTheme({
       ].join(','),
 
       h1: {
-         fontSize: '5.25rem',
+         // fontSize: "5.25rem",
+         fontSize: '3.56rem',
          fontWeight: '700',
          letterSpacing: '-0.06em',
-         lineHeight: '5.6rem',
+         // lineHeight: '5.6rem',
+         lineHeight: '3.5rem',
          '@media (max-width:900px)': {
             fontSize: '3.6rem',
             lineHeight: '3.3rem',
@@ -33,8 +35,13 @@ const customTheme = createTheme({
       },
 
       h3: {
-         fontSize: '1.5rem',
-         fontWeight: '400',
+         fontSize: '1.4rem',
+         fontWeight: '300',
+      },
+
+      h4: {
+         fontSize: '1rem',
+         fontWeight: 'bold',
       },
 
       subtitle1: {
@@ -56,7 +63,7 @@ const customTheme = createTheme({
          fontFamily: '"Fira Sans"',
          fontWeight: '200',
          fontSize: '0.97rem',
-         letterSpacing: '0.04em'
+         letterSpacing: '0.04em',
       },
 
       navLinks: {
@@ -114,6 +121,43 @@ const customTheme = createTheme({
                   sx: {
                      color: 'primary.main',
                   },
+               },
+            },
+         },
+      },
+
+      MuiTextField: {
+         defaultProps: {
+            fullWidth: 'true',
+            required: 'true',
+            variant: 'outlined',
+            inputProps: {
+               sx: {
+                  color: 'primary.light',
+               },
+            },
+         },
+      },
+
+      MuiInputLabel: {
+         defaultProps: {
+            sx: {
+               opacity: '1',
+               color: 'primary.light',
+               fontStyle: 'normal',
+               '& .MuiInputLabel-asterisk': {
+                  visibility: 'hidden',
+               },
+            },
+         },
+      },
+
+      MuiOutlinedInput: {
+         defaultProps: {
+            sx: {
+               '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'primary.light',
+                  opacity: '1',
                },
             },
          },
