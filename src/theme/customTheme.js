@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
-const customColor = '#5D2CC6'; // Cambiar también en styles.scss
+const customColor = '#004D40'; // Cambiar también en styles.scss
 // const customColor = '#DA0F34';   // Cambiar también en styles.scss
 
 const customTheme = createTheme({
@@ -61,7 +61,7 @@ const customTheme = createTheme({
       button: {
          color: 'white',
          fontFamily: '"Fira Sans"',
-         fontWeight: '200',
+         fontWeight: '300',
          fontSize: '0.97rem',
          letterSpacing: '0.04em',
       },

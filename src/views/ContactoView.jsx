@@ -6,7 +6,8 @@ import { Form } from '../ui/components';
 export const ContactoView = ({ viewBoxStyle }) => {
    const data = {
       title: 'Contacto',
-      subtitle: '¿Quieres contactarme?  Envíame un correo o búscame en las redes.',
+      subtitle:
+         '¿Quieres contactarme?  Envíame un correo o búscame en las redes.',
    };
 
    return (

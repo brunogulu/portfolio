@@ -1,23 +1,23 @@
-import React from "react";
-import { Box, TextField } from "@mui/material";
+import React from 'react';
+import { Box, TextField } from '@mui/material';
 
 export const Form = () => {
    return (
       <Box
          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
          }}
       >
          <Box
             component="form"
             noValidate
             sx={{
-               bgcolor: "none",
-               mt: "3rem",
-               width: "100%",
-               "& .MuiTextField-root": { mb: 1, variant: 'outlined' },
+               bgcolor: 'none',
+               mt: '3rem',
+               width: '100%',
+               '& .MuiTextField-root': { mb: 1, variant: 'outlined' },
             }}
          >
             <TextField
@@ -37,12 +37,7 @@ export const Form = () => {
                autoComplete="email"
             />
 
-            <TextField
-               required
-               id="subject"
-               name="subject"
-               label="Asunto"
-            />
+            <TextField required id="subject" name="subject" label="Asunto" />
 
             <TextField
                required

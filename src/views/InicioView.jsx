@@ -14,13 +14,9 @@ export const InicioView = ({ viewBoxStyle }) => {
          </Typography>
 
          <Typography variant="h3" sx={{ mt: '3rem' }}>
-            Hola, mi nombre es <strong>Bruno</strong>.
-            <br />
-            Desarrollo y despliegue de aplicaciones
-            <br />
-            React con Redux.
-            <br />
-            Diseño UX / UI.
+            ¡Bienvenido/a a mi portfolio! <br />
+            Desarrollo con React, diseño UX/UI <br />y gestión de estados con
+            Redux.
          </Typography>
 
          <Button
@@ -39,7 +35,7 @@ export const InicioView = ({ viewBoxStyle }) => {
                width: '251px',
                '&:hover': {
                   bgcolor: `${color.custom}`,
-                  boxShadow: 'none',
+                  boxShadow: '0px 0px 0 0 #fff',
                   transform: 'translate(5px, 5px)',
                   transition: 'all 0.2s ease 0s',
                },
@@ -63,8 +59,9 @@ export const InicioView = ({ viewBoxStyle }) => {
             </Typography>
 
             <Box display={'flex'} sx={{ alignItems: 'center' }}>
+               {/* //todo: incorporar iconos de mi stack */}
                <Stack direction="row" spacing="1.8rem">
-                  HTML, CSS, JS, REACT, SASS
+                  HTML, CSS, JS, REACT, SASS, FIGMA
                </Stack>
             </Box>
          </Box>
