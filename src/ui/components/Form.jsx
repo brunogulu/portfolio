@@ -1,7 +1,10 @@
 import React from 'react';
-import { Box, TextField } from '@mui/material';
+import { Button, Box, TextField } from '@mui/material';
+import customTheme from '../../theme/customTheme';
 
 export const Form = () => {
+   const color = customTheme.palette.custom;
+
    return (
       <Box
          sx={{
@@ -14,10 +17,10 @@ export const Form = () => {
             component="form"
             noValidate
             sx={{
-               bgcolor: 'none',
+               mb: '3rem',
                mt: '3rem',
                width: '100%',
-               '& .MuiTextField-root': { mb: 1, variant: 'outlined' },
+               '& .MuiTextField-root': { mb: 2 },
             }}
          >
             <TextField
@@ -25,19 +28,18 @@ export const Form = () => {
                id="name"
                name="name"
                label="Nombre"
-               autoComplete="name"
                autoFocus
             />
 
+            <TextField required id="email" name="email" label="Email" />
+
             <TextField
                required
-               id="email"
-               name="email"
-               label="Email"
-               autoComplete="email"
+               id="subject"
+               name="subject"
+               label="Asunto"
+               multiline
             />
-
-            <TextField required id="subject" name="subject" label="Asunto" />
 
             <TextField
                required
@@ -45,7 +47,25 @@ export const Form = () => {
                name="message"
                label="Mensaje"
                multiline
+               rows={3}
             />
+
+            <Button
+               variant="contained"
+               sx={{
+                  color: 'black',
+                  bgcolor: 'white',
+                  height: '2.8rem',
+                  fontWeight: '700',
+                  textTransform: 'capitalize',
+                  width: '100%',
+                  '&:hover': {
+                     bgcolor: 'white',
+                  },
+               }}
+            >
+               Enviar
+            </Button>
          </Box>
       </Box>
    );

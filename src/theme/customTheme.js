@@ -1,7 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
 const customColor = '#004D40'; // Cambiar también en styles.scss
-// const customColor = '#DA0F34';   // Cambiar también en styles.scss
 
 const customTheme = createTheme({
    typography: {
@@ -15,11 +14,9 @@ const customTheme = createTheme({
       ].join(','),
 
       h1: {
-         // fontSize: "5.25rem",
          fontSize: '3.56rem',
          fontWeight: '700',
          letterSpacing: '-0.06em',
-         // lineHeight: '5.6rem',
          lineHeight: '3.5rem',
          '@media (max-width:900px)': {
             fontSize: '3.6rem',
@@ -53,9 +50,9 @@ const customTheme = createTheme({
 
       body1: {
          fontFamily: '"Fira Sans"',
-         fontSize: '1rem',
+         fontSize: '1.1rem',
          fontStyle: 'italic',
-         lineHeight: '1.3rem',
+         lineHeight: '1.4rem',
       },
 
       button: {
@@ -93,10 +90,13 @@ const customTheme = createTheme({
 
    palette: {
       primary: {
-         custom: customColor,
+         // custom: customColor,
          light: '#fff',
          main: '#fff',
          dark: '#000',
+      },
+      custom: {
+         main: customColor,
       },
    },
 
@@ -112,7 +112,7 @@ const customTheme = createTheme({
             componentsProps: {
                tooltip: {
                   sx: {
-                     bgcolor: 'primary.main',
+                     bgcolor: 'primary.light',
                      color: 'primary.dark',
                   },
                },
@@ -128,21 +128,14 @@ const customTheme = createTheme({
 
       MuiTextField: {
          defaultProps: {
-            fullWidth: 'true',
-            required: 'true',
-            variant: 'outlined',
-            inputProps: {
-               sx: {
-                  color: 'primary.light',
-               },
-            },
+            size: 'small',
+            fullWidth: true,
          },
       },
 
       MuiInputLabel: {
          defaultProps: {
             sx: {
-               opacity: '1',
                color: 'primary.light',
                fontStyle: 'normal',
                '& .MuiInputLabel-asterisk': {
@@ -157,7 +150,10 @@ const customTheme = createTheme({
             sx: {
                '& .MuiOutlinedInput-notchedOutline': {
                   borderColor: 'primary.light',
-                  opacity: '1',
+               },
+               '&:hover .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'primary.light',
+                  opacity: '0.8',
                },
             },
          },

@@ -45,7 +45,9 @@ export const Navbar = ({ getIndex }) => {
       >
          <Box alignItems="center" display="flex">
             <Logo fill="white" width="52px" />
-            <Typography sx={{ ml: '1.25rem', typography: 'logo' }}>Bruno.</Typography>
+            <Typography sx={{ ml: '1.25rem', typography: 'logo' }}>
+               Bruno.
+            </Typography>
          </Box>
 
          <Box
@@ -62,7 +64,12 @@ export const Navbar = ({ getIndex }) => {
                onChange={handleChange}
             >
                {linksArray.map((link, index) => (
-                  <Tab key={index} label={link} disableRipple sx={{ ...tabStyle }} />
+                  <Tab
+                     key={index}
+                     label={link}
+                     disableRipple
+                     sx={{ ...tabStyle }}
+                  />
                ))}
             </Tabs>
          </Box>
