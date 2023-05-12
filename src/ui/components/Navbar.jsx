@@ -28,7 +28,7 @@ export const Navbar = ({ getIndex }) => {
       p: '0',
       typography: 'navLinks',
       '&.Mui-selected': {
-         fontWeight: '400',
+         fontWeight: '500',
       },
    };
 

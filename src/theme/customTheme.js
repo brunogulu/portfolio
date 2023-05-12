@@ -6,8 +6,8 @@ const customTheme = createTheme({
    typography: {
       fontFamily: [
          'Montserrat',
-         '"Fira Sans"',
          '"Old Standard TT"',
+         '"Exo 2"',
          '"Helvetica Neue"',
          'Arial',
          'sans-serif',
@@ -49,7 +49,7 @@ const customTheme = createTheme({
       },
 
       body1: {
-         fontFamily: '"Fira Sans"',
+         fontFamily: '"Exo 2"',
          fontSize: '1.1rem',
          fontStyle: 'italic',
          lineHeight: '1.4rem',
@@ -57,7 +57,7 @@ const customTheme = createTheme({
 
       button: {
          color: 'white',
-         fontFamily: '"Fira Sans"',
+         fontFamily: '"Exo 2"',
          fontWeight: '300',
          fontSize: '0.97rem',
          letterSpacing: '0.04em',
@@ -67,7 +67,8 @@ const customTheme = createTheme({
          color: '#fff',
          letterSpacing: '0.02em',
          lineHeight: '5rem',
-         fontFamily: '"Fira Sans"',
+         // fontFamily: '"Fira Sans"',
+         fontFamily: '"Exo 2"',
          fontSize: '1.05rem',
          fontWeight: '300',
          textTransform: 'uppercase',
@@ -97,6 +98,9 @@ const customTheme = createTheme({
       },
       custom: {
          main: customColor,
+      },
+      divider: {
+         main: 'red',
       },
    },
 

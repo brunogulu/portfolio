@@ -53,10 +53,11 @@ export const Form = () => {
             <Button
                variant="contained"
                sx={{
-                  color: 'black',
-                  bgcolor: 'white',
+                  color: 'white',
+                  bgcolor: color.main,
                   height: '2.8rem',
-                  fontWeight: '700',
+                  fontSize: '1.1rem',
+                  fontWeight: '800',
                   textTransform: 'capitalize',
                   width: '100%',
                   '&:hover': {

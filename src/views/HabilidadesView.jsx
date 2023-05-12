@@ -1,17 +1,29 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import { Presentation } from '../ui/components/Presentation';
-import SimpleAccordion from '../ui/components/SimpleAccordion';
+import CustomAccordion from '../ui/components/CustomAccordion';
 
 export const HabilidadesView = ({ viewBoxStyle }) => {
    const data = {
       title: 'Mis habilidades',
-      subtitle: 'Tecnologías, lenguajes y programas con los que estoy familiarizado.',
+      subtitle:
+         'Tecnologías, lenguajes y programas con los que estoy familiarizado.',
    };
 
    const skills = {
-      programming: ['ReactJS', 'Javascript', 'Redux, React Redux, RTK Query', 'C#'],
-      design: ['SASS', 'MaterialUI', 'Figma', 'Adobe Photoshop', 'Adobe Illustrator'],
+      programming: [
+         'ReactJS',
+         'Javascript',
+         'Redux, React Redux, RTK Query',
+         'C#',
+      ],
+      design: [
+         'SASS',
+         'MaterialUI',
+         'Figma',
+         'Adobe Photoshop',
+         'Adobe Illustrator',
+      ],
       others: ['Github', 'Firebase', 'React Router', 'Axios'],
    };
 
@@ -19,7 +31,7 @@ export const HabilidadesView = ({ viewBoxStyle }) => {
       <Box sx={{ ...viewBoxStyle }}>
          <Presentation title={data.title} subtitle={data.subtitle} />
 
-         <SimpleAccordion skills={skills} />
+         <CustomAccordion skills={skills} />
       </Box>
    );
 };
