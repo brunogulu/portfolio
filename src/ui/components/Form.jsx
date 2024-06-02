@@ -57,11 +57,12 @@ export const Form = () => {
                   bgcolor: color.main,
                   height: '2.8rem',
                   fontSize: '1.1rem',
-                  fontWeight: '800',
+                  fontWeight: '600',
                   textTransform: 'capitalize',
                   width: '100%',
                   '&:hover': {
-                     bgcolor: 'white',
+                     //bgcolor: '#007461',
+                     bgcolor: '#00372E',
                   },
                }}
             >

@@ -132,6 +132,7 @@ const customTheme = createTheme({
 
       MuiTextField: {
          defaultProps: {
+            autoComplete: 'false',
             size: 'small',
             fullWidth: true,
          },
@@ -142,6 +143,7 @@ const customTheme = createTheme({
             sx: {
                color: 'primary.light',
                fontStyle: 'normal',
+               fontWeight: '600',
                '& .MuiInputLabel-asterisk': {
                   visibility: 'hidden',
                },
@@ -152,6 +154,9 @@ const customTheme = createTheme({
       MuiOutlinedInput: {
          defaultProps: {
             sx: {
+               '& .MuiOutlinedInput-input': {
+                  color: 'primary.light',
+               },
                '& .MuiOutlinedInput-notchedOutline': {
                   borderColor: 'primary.light',
                },
