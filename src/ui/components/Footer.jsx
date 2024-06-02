@@ -3,7 +3,7 @@ import { GitHub, Instagram, LinkedIn } from '@mui/icons-material';
 
 export const Footer = () => {
    const social = {
-      instagram: 'brunopittilini_',
+      instagram: 'bruno.pittilini',
       github: 'brunogulu',
       linkedin: 'bipittilini',
    };
@@ -32,7 +32,8 @@ export const Footer = () => {
          }}
       >
          <Typography flex="1" textAlign="left" sx={{ typography: 'footer' }}>
-            © {new Date().getFullYear()} - Bruno Pittilini. Todos los derechos reservados.
+            © {new Date().getFullYear()} - Bruno Pittilini. Todos los derechos
+            reservados.
          </Typography>
 
          <Stack direction="row" spacing="1.8rem">
