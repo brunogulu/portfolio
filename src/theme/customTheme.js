@@ -147,6 +147,26 @@ const customTheme = createTheme({
                '& .MuiInputLabel-asterisk': {
                   visibility: 'hidden',
                },
+               // Fondo transparente en autocompletado
+               '& input:-webkit-autofill': {
+                  WebkitBoxShadow: '0 0 0 1000px rgba(0, 0, 0, 0) inset',
+                  WebkitTextFillColor: 'primary.light',
+               },
+               '& input:-webkit-autofill:focus': {
+                  WebkitBoxShadow: '0 0 0 1000px rgba(0, 0, 0, 0) inset',
+                  WebkitTextFillColor: 'primary.light',
+               },
+               '& input:-webkit-autofill:hover': {
+                  WebkitBoxShadow: '0 0 0 1000px rgba(0, 0, 0, 0) inset',
+                  WebkitTextFillColor: 'primary.light',
+               },
+               '& input:-webkit-autofill:active': {
+                  WebkitBoxShadow: '0 0 0 1000px rgba(0, 0, 0, 0) inset',
+                  WebkitTextFillColor: 'primary.light',
+               },
+               '& .MuiInputBase-root': {
+                  backgroundColor: 'transparent',
+               },
             },
          },
       },

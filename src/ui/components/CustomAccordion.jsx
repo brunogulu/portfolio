@@ -67,7 +67,7 @@ export default function CustomizedAccordions({ skills }) {
                </Typography>
             </AccordionSummary>
             <AccordionDetails>
-               {skills.design.map(skill => {
+               {skills.programming.map(skill => {
                   return (
                      <Typography
                         component={'span'}
@@ -97,7 +97,7 @@ export default function CustomizedAccordions({ skills }) {
                </Typography>
             </AccordionSummary>
             <AccordionDetails>
-               {skills.programming.map(skill => {
+               {skills.design.map(skill => {
                   return (
                      <Typography
                         component={'span'}
