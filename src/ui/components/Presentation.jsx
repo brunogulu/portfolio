@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 
-export const Presentation = (props) => {
+export const Presentation = props => {
    return (
       <>
          <Box sx={{ position: 'relative' }}>

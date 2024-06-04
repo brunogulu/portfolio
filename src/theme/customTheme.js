@@ -67,7 +67,6 @@ const customTheme = createTheme({
          color: '#fff',
          letterSpacing: '0.02em',
          lineHeight: '5rem',
-         // fontFamily: '"Fira Sans"',
          fontFamily: '"Exo 2"',
          fontSize: '1.05rem',
          fontWeight: '300',
@@ -91,16 +90,12 @@ const customTheme = createTheme({
 
    palette: {
       primary: {
-         // custom: customColor,
          light: '#fff',
          main: '#fff',
          dark: '#000',
       },
       custom: {
          main: customColor,
-      },
-      divider: {
-         main: 'red',
       },
    },
 
@@ -132,9 +127,12 @@ const customTheme = createTheme({
 
       MuiTextField: {
          defaultProps: {
-            autoComplete: 'false',
             size: 'small',
             fullWidth: true,
+            inputProps: {
+               autoComplete: 'off',
+               'aria-autocomplete': 'none',
+            },
          },
       },
 

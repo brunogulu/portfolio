@@ -3,7 +3,7 @@ import { Button, Box, TextField } from '@mui/material';
 import customTheme from '../../theme/customTheme';
 
 export const Form = () => {
-   const color = customTheme.palette.custom;
+   const color = customTheme.palette;
 
    return (
       <Box
@@ -53,16 +53,16 @@ export const Form = () => {
             <Button
                variant="contained"
                sx={{
-                  color: 'white',
-                  bgcolor: color.main,
+                  color: color.primary.dark,
+                  bgcolor: color.primary.light,
                   height: '2.8rem',
                   fontSize: '1.1rem',
                   fontWeight: '600',
                   textTransform: 'capitalize',
                   width: '100%',
                   '&:hover': {
-                     //bgcolor: '#007461',
-                     bgcolor: '#00372E',
+                     bgcolor: color.primary.light,
+                     textDecorationLine: 'underline',
                   },
                }}
             >
