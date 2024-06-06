@@ -19,31 +19,14 @@ export const InicioView = ({ viewBoxStyle }) => {
             Redux.
          </Typography>
 
-         <Button
-            aria-label="descargar curriculum"
-            disableRipple={false}
-            startIcon={
+         <button className="pushable">
+            <span className="shadow"></span>
+            <span className="edge"></span>
+            <span className="front">
                <FileDownloadOutlined size="large" sx={{ fill: 'white' }} />
-            }
-            sx={{
-               bgcolor: `${color.main}`,
-               // bgcolor: `${color.custom}`,
-               borderRadius: '4',
-               boxShadow: '6px 6px 0 0 #fff',
-               height: '70px',
-               mt: '3rem',
-               ml: '-7px',
-               width: '251px',
-               '&:hover': {
-                  bgcolor: `${color.main}`,
-                  boxShadow: '0px 0px 0 0 #fff',
-                  transform: 'translate(5px, 5px)',
-                  transition: 'all 0.2s ease 0s',
-               },
-            }}
-         >
-            <Typography variant="button">Curriculum Vitae</Typography>
-         </Button>
+               <Typography variant="button">Curriculum Vitae</Typography>
+            </span>
+         </button>
 
          <Box display={'flex'} sx={{ alignItems: 'center', mt: '5rem' }}>
             <Typography variant="h4">Mi Stack</Typography>
