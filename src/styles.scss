@@ -90,22 +90,20 @@ video {
 }
 
 // CtA Button
-button {
-   margin-top: 3rem;
-}
-
-span {
-   padding: 5px;
-}
 
 .pushable {
    position: relative;
    border: none;
    background: transparent;
+   margin-top: 3rem;
    padding: 0;
    cursor: pointer;
    outline-offset: 6px;
    transition: filter 250ms;
+
+   span {
+      padding: 5px;
+   }
 }
 .shadow {
    position: absolute;
