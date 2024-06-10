@@ -1,10 +1,9 @@
 import React from 'react';
-import { Button, Box, TextField } from '@mui/material';
-import customTheme from '../../theme/customTheme';
+import { Box, TextField } from '@mui/material';
+import { SnackbarProvider } from 'notistack';
+import { SendEmailButton } from './SendEmailButton';
 
 export const Form = () => {
-   const color = customTheme.palette;
-
    return (
       <Box
          sx={{
@@ -50,24 +49,9 @@ export const Form = () => {
                rows={3}
             />
 
-            <Button
-               variant="contained"
-               sx={{
-                  color: color.primary.dark,
-                  bgcolor: color.primary.light,
-                  height: '2.8rem',
-                  fontSize: '1.1rem',
-                  fontWeight: '600',
-                  textTransform: 'capitalize',
-                  width: '100%',
-                  '&:hover': {
-                     bgcolor: color.primary.light,
-                     textDecorationLine: 'underline',
-                  },
-               }}
-            >
-               Enviar
-            </Button>
+            <SnackbarProvider>
+               <SendEmailButton />
+            </SnackbarProvider>
          </Box>
       </Box>
    );

@@ -165,6 +165,17 @@ const customTheme = createTheme({
             },
          },
       },
+
+      MuiIconButton: {
+         defaultProps: {
+            sx: {
+               '&:hover': {
+                  bgcolor: 'transparent',
+                  color: 'inherit',
+               },
+            },
+         },
+      },
    },
 });
 
