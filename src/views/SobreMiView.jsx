@@ -13,7 +13,7 @@ export const SobreMiView = ({ viewBoxStyle }) => {
          <Presentation title={data.title} subtitle={data.subtitle} />
          <Typography
             variant="body1"
-            sx={{ maxWidth: '600px', mt: '80px', textAlign: 'left' }}
+            sx={{ maxWidth: '600px', mt: '3rem', textAlign: 'left' }}
          >
             Mi nombre es Bruno, soy un desarrollador autodidacta apasionado por
             la creación de productos digitales útiles, intuitivos y atractivos.

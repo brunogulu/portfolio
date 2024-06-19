@@ -1,18 +1,21 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { Box, TextField } from '@mui/material';
-import { SendEmailButton } from './SendEmailButton';
-import { SnackbarProvider } from 'notistack';
+import { Box, Button, TextField } from '@mui/material';
 import emailjs from '@emailjs/browser';
+import customTheme from '../../theme/customTheme';
+import { useSnackbar } from 'notistack';
 
 export const Form = () => {
+   const color = customTheme.palette;
    const form = useRef();
    const {
       register,
       handleSubmit,
       formState: { errors },
    } = useForm();
+   const { enqueueSnackbar } = useSnackbar();
 
+   // EmailJS options
    const options = {
       publicKey: 'zhlX4ZADyWN8UJDne',
       // Do not allow headless browsers
@@ -33,14 +36,21 @@ export const Form = () => {
 
    const onSubmit = handleSubmit(() => {
       emailjs
-         .sendForm('', 'template_2vjjmxg', form.current, options)
-         // .sendForm('service_ck6vc4o', 'template_2vjjmxg', form.current, options)
+         .sendForm('service_ck6vc4o', 'template_2vjjmxg', form.current, options)
          .then(
             response => {
-               console.log(response);
+               console.log('SUCCESS!', response.status, response.text);
+               enqueueSnackbar('Mensaje enviado', {
+                  variant: 'success',
+                  disableWindowBlurListener: true,
+               });
             },
             error => {
-               console.log(error);
+               console.error('FAILED...', error);
+               enqueueSnackbar('No se envió el mensaje', {
+                  variant: 'error',
+                  disableWindowBlurListener: true,
+               });
             }
          );
    });
@@ -127,9 +137,29 @@ export const Form = () => {
                helperText={errors.message && errors.message.message}
             />
 
-            <SnackbarProvider>
+            <Button
+               type="submit"
+               variant="contained"
+               sx={{
+                  color: color.primary.dark,
+                  bgcolor: color.primary.light,
+                  height: '2.8rem',
+                  fontSize: '1.1rem',
+                  fontWeight: '600',
+                  textTransform: 'capitalize',
+                  width: '100%',
+                  '&:hover': {
+                     bgcolor: color.primary.light,
+                     textDecorationLine: 'underline',
+                  },
+               }}
+            >
+               Enviar
+            </Button>
+
+            {/* <SnackbarProvider>
                <SendEmailButton />
-            </SnackbarProvider>
+            </SnackbarProvider> */}
          </Box>
       </Box>
    );

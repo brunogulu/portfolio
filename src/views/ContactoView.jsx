@@ -2,6 +2,7 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { Presentation } from '../ui/components/Presentation';
 import { Form } from '../ui/components';
+import { SnackbarProvider } from 'notistack';
 
 export const ContactoView = ({ viewBoxStyle }) => {
    const data = {
@@ -14,7 +15,9 @@ export const ContactoView = ({ viewBoxStyle }) => {
       <Box sx={{ ...viewBoxStyle }}>
          <Presentation title={data.title} subtitle={data.subtitle} />
 
-         <Form />
+         <SnackbarProvider>
+            <Form />
+         </SnackbarProvider>
       </Box>
    );
 };
