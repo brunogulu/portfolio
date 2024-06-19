@@ -18,6 +18,7 @@ export const SendEmailButton = () => {
 
    return (
       <Button
+         type="submit"
          variant="contained"
          sx={{
             color: color.primary.dark,

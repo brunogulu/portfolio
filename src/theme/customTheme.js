@@ -102,7 +102,7 @@ const customTheme = createTheme({
    components: {
       MuiButtonBase: {
          defaultProps: {
-            disableRipple: true,
+            // disableRipple: true,
          },
       },
 
@@ -133,6 +133,9 @@ const customTheme = createTheme({
                autoComplete: 'off',
                'aria-autocomplete': 'none',
             },
+            sx: {
+               color: 'primary.light',
+            },
          },
       },
 
@@ -161,6 +164,13 @@ const customTheme = createTheme({
                '&:hover .MuiOutlinedInput-notchedOutline': {
                   borderColor: 'primary.light',
                   opacity: '0.8',
+               },
+               '&.Mui-error .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'error.main', // Color de borde en estado de error
+               },
+               '&.Mui-error:hover .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'error.main', // Color de borde en estado de error durante hover
+                  opacity: '0.8', // Mantener la opacidad ajustada durante hover
                },
             },
          },
