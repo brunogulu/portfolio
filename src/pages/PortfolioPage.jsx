@@ -1,41 +1,41 @@
-import React, { useState } from 'react';
-import { PortfolioLayout } from '../layout/PortfolioLayout';
-import { ContactoView, HabilidadesView, InicioView, SobreMiView } from '../views';
+import React, { useState, useCallback, useMemo } from 'react';
+import { PortfolioLayoutResponsive } from '../layout/PortfolioLayoutResponsive';
+import {
+   ContactoView,
+   HabilidadesView,
+   InicioView,
+   SobreMiView,
+} from '../views';
+
+// Array de vistas para mejor escalabilidad y mantenimiento
+const views = [InicioView, SobreMiView, HabilidadesView, ContactoView];
+
+const DefaultView = () => <h1>Nada que ver</h1>;
 
 export const PortfolioPage = () => {
-   // Obtener index del navbar
    const [index, setIndex] = useState(0);
-   const handleNavIndexChange = newIndex => {
+
+   // Memoizar el manejador de cambios para prevenir renders innecesarios
+   const handleNavIndexChange = useCallback(newIndex => {
       setIndex(newIndex);
-   };
+   }, []);
 
-   const viewBoxStyle = {
-      maxWidth: '900px',
-      mt: '8rem',
-      // mb: '3rem',
-      // paddingBottom: '2rem',
-      width: '60%',
-   };
+   // Memoizar estilos para evitar recreación en cada render
+   const viewBoxStyle = useMemo(
+      () => ({
+         maxWidth: '900px',
+         mt: '8rem',
+         width: '60%',
+      }),
+      []
+   );
 
-   // Renderizar vista correspondiente al index del navbar
-   const SwitchView = () => {
-      switch (index) {
-         case 0:
-            return <InicioView viewBoxStyle={viewBoxStyle} />;
-         case 1:
-            return <SobreMiView viewBoxStyle={viewBoxStyle} />;
-         case 2:
-            return <HabilidadesView viewBoxStyle={viewBoxStyle} />;
-         case 3:
-            return <ContactoView viewBoxStyle={viewBoxStyle} />;
-         default:
-            return <h1>Nada que ver</h1>;
-      }
-   };
+   // Selección de vista optimizada
+   const ViewComponent = useMemo(() => views[index] || DefaultView, [index]);
 
    return (
-      <PortfolioLayout getData={handleNavIndexChange}>
-         <SwitchView />
-      </PortfolioLayout>
+      <PortfolioLayoutResponsive getData={handleNavIndexChange}>
+         <ViewComponent viewBoxStyle={viewBoxStyle} />
+      </PortfolioLayoutResponsive>
    );
 };

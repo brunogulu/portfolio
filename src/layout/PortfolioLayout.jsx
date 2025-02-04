@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import { Footer, Navbar } from '../ui/components';
+//import { FooterOld, Navbar } from '../ui/components';
 import video from '../assets/video.mp4';
 
 export const PortfolioLayout = ({ getData, children }) => {
@@ -34,7 +34,7 @@ export const PortfolioLayout = ({ getData, children }) => {
 
          {/* Footer */}
          <Box>
-            <Footer />
+            <FooterOld />
          </Box>
       </Box>
    );

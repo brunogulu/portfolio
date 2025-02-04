@@ -1,147 +1,124 @@
-import * as React from 'react';
+import React, { useCallback, useMemo, memo } from 'react';
 import { styled } from '@mui/material/styles';
+import {
+   Accordion as MuiAccordion,
+   AccordionSummary as MuiAccordionSummary,
+   AccordionDetails as MuiAccordionDetails,
+   Typography,
+   useTheme,
+} from '@mui/material';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
-import MuiAccordion from '@mui/material/Accordion';
-import MuiAccordionSummary from '@mui/material/AccordionSummary';
-import MuiAccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import customTheme from '../../theme/customTheme';
 
-const color = customTheme.palette;
-const typographyStyle = {
-   display: 'block',
-   color: 'primary.light',
-   fontSize: '1.125rem',
-   fontFamily: '"Exo 2"',
-   fontStyle: 'normal',
-   fontWeight: '400',
-   ml: '.5rem',
-};
-const skillStyle = {
-   m: '.5rem',
-};
+// Configuración constante fuera del componente
+const CATEGORIES = [
+   { label: 'Programación & Desarrollo', key: 'programming' },
+   { label: 'Diseño & Maquetación', key: 'design' },
+   { label: 'Otros', key: 'others' },
+];
 
-const Accordion = styled(props => (
-   <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
-   border: `1px solid rgba(0, 0, 0, .8)`,
-   '&:not(:last-child)': {
-      borderBottom: 0,
-   },
-   '&::before': {
-      display: 'none',
-   },
-}));
+// Componentes estilizados memoizados
+const Accordion = memo(
+   styled(MuiAccordion)(({ theme }) => ({
+      border: `1px solid ${theme.palette.primary.dark}`,
+      '&:not(:last-child)': { borderBottom: 0 },
+      '&::before': { display: 'none' },
+   }))
+);
 
-const AccordionSummary = styled(props => (
-   <MuiAccordionSummary
-      expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
-      {...props}
-   />
-))(({ theme }) => ({
-   backgroundColor: color.primary.contrastText,
-   flexDirection: 'row-reverse',
-   '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-      transform: 'rotate(90deg)',
-   },
-   '& .MuiAccordionSummary-content': {
-      marginLeft: theme.spacing(1),
-   },
-}));
+const AccordionSummary = memo(
+   styled(MuiAccordionSummary)(({ theme }) => ({
+      backgroundColor: theme.palette.primary.contrastText,
+      flexDirection: 'row-reverse',
+      '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+         transform: 'rotate(90deg)',
+      },
+   }))
+);
 
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-   backgroundColor: color.primary.dark,
-   borderTop: '1px solid rgba(0, 0, 0, .125)',
-   padding: theme.spacing(2),
-}));
+const AccordionDetails = memo(
+   styled(MuiAccordionDetails)(({ theme }) => ({
+      backgroundColor: theme.palette.primary.dark,
+      borderTop: `1px solid ${theme.palette.primary.light}25`,
+      padding: theme.spacing(2),
+   }))
+);
 
-export default function CustomAccordion2({ skills }) {
-   const [expanded, setExpanded] = React.useState();
+const CustomAccordion = ({ skills }) => {
+   const theme = useTheme();
+   const [expanded, setExpanded] = React.useState(null);
 
-   const handleChange = panel => (event, newExpanded) => {
-      setExpanded(newExpanded ? panel : false);
-   };
+   // Memoizar estilos comunes
+   const typographyStyle = useMemo(
+      () => ({
+         color: theme.palette.primary.light,
+         fontSize: '1.125rem',
+         fontFamily: theme.typography.body1.fontFamily,
+         fontWeight: 400,
+         ml: theme.spacing(0.5),
+      }),
+      [theme]
+   );
+
+   const skillStyle = useMemo(
+      () => ({
+         m: theme.spacing(0.5),
+      }),
+      [theme]
+   );
+
+   // Handler memoizado
+   const handleChange = useCallback(
+      panel => (_, newExpanded) => setExpanded(newExpanded ? panel : null),
+      []
+   );
+
+   // Estilo del icono memoizado
+   const expandIconStyle = useMemo(
+      () => ({
+         fontSize: '0.9rem',
+      }),
+      []
+   );
 
    return (
-      <div className="accordion">
-         <Accordion
-            expanded={expanded === 'panel1'}
-            onChange={handleChange('panel1')}
-         >
-            <AccordionSummary
-               aria-controls="panel1d-content"
-               id="panel1d-header"
-            >
-               <Typography component={'span'} sx={{ ...typographyStyle }}>
-                  Programación & Desarrollo
-               </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-               {skills.programming.map(skill => {
-                  return (
-                     <Typography
-                        component={'span'}
-                        key={skill}
-                        sx={{ ...typographyStyle, ...skillStyle }}
-                     >
-                        {skill}
+      <div>
+         {CATEGORIES.map(({ label, key }, index) => {
+            const panelId = `panel${index}`;
+
+            return (
+               <Accordion
+                  key={key}
+                  expanded={expanded === panelId}
+                  onChange={handleChange(panelId)}
+               >
+                  <AccordionSummary
+                     expandIcon={
+                        <ArrowForwardIosSharpIcon sx={expandIconStyle} />
+                     }
+                     aria-controls={`${panelId}-content`}
+                     id={`${panelId}-header`}
+                  >
+                     <Typography component="span" sx={typographyStyle}>
+                        {label}
                      </Typography>
-                  );
-               })}
-            </AccordionDetails>
-         </Accordion>
-         <Accordion
-            expanded={expanded === 'panel2'}
-            onChange={handleChange('panel2')}
-         >
-            <AccordionSummary
-               aria-controls="panel2d-content"
-               id="panel2d-header"
-            >
-               <Typography component={'span'} sx={{ ...typographyStyle }}>
-                  Diseño & Maquetación
-               </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-               {skills.design.map(skill => {
-                  return (
-                     <Typography
-                        component={'span'}
-                        key={skill}
-                        sx={{ ...typographyStyle, ...skillStyle }}
-                     >
-                        {skill}
-                     </Typography>
-                  );
-               })}
-            </AccordionDetails>
-         </Accordion>
-         <Accordion
-            expanded={expanded === 'panel3'}
-            onChange={handleChange('panel3')}
-         >
-            <AccordionSummary
-               aria-controls="panel3d-content"
-               id="panel3d-header"
-            >
-               <Typography component={'span'} sx={{ ...typographyStyle }}>
-                  Otros
-               </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-               {skills.others.map(skill => {
-                  return (
-                     <Typography
-                        component={'span'}
-                        key={skill}
-                        sx={{ ...typographyStyle, ...skillStyle }}
-                     >
-                        {skill}
-                     </Typography>
-                  );
-               })}
-            </AccordionDetails>
-         </Accordion>
+                  </AccordionSummary>
+
+                  <AccordionDetails>
+                     {skills[key].map(skill => (
+                        <Typography
+                           key={skill}
+                           component="span"
+                           sx={{ ...typographyStyle, ...skillStyle }}
+                        >
+                           {skill}
+                        </Typography>
+                     ))}
+                  </AccordionDetails>
+               </Accordion>
+            );
+         })}
       </div>
    );
-}
+};
+
+export default memo(CustomAccordion);

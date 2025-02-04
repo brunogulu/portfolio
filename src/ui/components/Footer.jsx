@@ -1,58 +1,85 @@
-import { Box, Stack, Tooltip, Typography } from '@mui/material';
+import { Box, Stack, Tooltip, Typography, IconButton } from '@mui/material';
 import { GitHub, Instagram, LinkedIn } from '@mui/icons-material';
+import React, { useMemo, memo } from 'react';
 
-export const Footer = () => {
-   const social = {
-      instagram: 'bruno.pittilini',
-      github: 'brunogulu',
-      linkedin: 'bipittilini',
-   };
+// Datos estáticos fuera del componente
+const SOCIAL_LINKS = [
+   {
+      title: 'Instagram',
+      icon: <Instagram />,
+      url: 'https://www.instagram.com/bruno.pittilini',
+   },
+   {
+      title: 'LinkedIn',
+      icon: <LinkedIn />,
+      url: 'https://www.linkedin.com/in/bipittilini',
+   },
+   {
+      title: 'GitHub',
+      icon: <GitHub />,
+      url: 'https://github.com/brunogulu',
+   },
+];
 
-   const btnSocialStyle = {
-      fontSize: '30',
-      opacity: '0.75',
-      shapeRendering: 'geometricPrecision',
-      sx: {
-         ['&:hover']: {
-            opacity: '1',
+// Estilos memoizados
+const useStyles = () => {
+   const footerStyles = useMemo(
+      () => ({
+         background: 'none',
+         height: 55,
+         mb: 0.5,
+         mt: 2,
+         px: 3.4,
+      }),
+      []
+   );
+
+   const iconButtonStyles = useMemo(
+      () => ({
+         opacity: 0.75,
+         '&:hover': {
+            opacity: 1,
+            backgroundColor: 'transparent', // Mejora accesibilidad hover
          },
-      },
-   };
+      }),
+      []
+   );
+
+   return { footerStyles, iconButtonStyles };
+};
+
+export const Footer = memo(() => {
+   const { footerStyles, iconButtonStyles } = useStyles();
+   const currentYear = useMemo(() => new Date().getFullYear(), []);
 
    return (
       <Box
          component="footer"
          display="flex"
-         sx={{
-            background: 'none',
-            height: '55px',
-            mb: '0.5rem',
-            placeItems: 'center',
-            px: '3.4rem',
-         }}
+         alignItems="center"
+         justifyContent="space-between"
+         sx={footerStyles}
       >
-         <Typography flex="1" textAlign="left" sx={{ typography: 'footer' }}>
-            © {new Date().getFullYear()} - Bruno Pittilini. Todos los derechos
-            reservados.
+         <Typography variant="body2" sx={{ typography: 'footer' }}>
+            © {currentYear} - Bruno Pittilini.
          </Typography>
 
-         <Stack direction="row" spacing="1.8rem">
-            <Tooltip title="Instagram" arrow>
-               <a href={`https://www.instagram.com/${social.instagram}`}>
-                  <Instagram {...btnSocialStyle} />
-               </a>
-            </Tooltip>
-            <Tooltip title="LinkedIn" arrow>
-               <a href={`https://www.linkedin.com/in/${social.linkedin}`}>
-                  <LinkedIn {...btnSocialStyle} />
-               </a>
-            </Tooltip>
-            <Tooltip title="GitHub" arrow>
-               <a href={`https://github.com/${social.github}`}>
-                  <GitHub {...btnSocialStyle} />
-               </a>
-            </Tooltip>
+         <Stack direction="row" spacing={2}>
+            {SOCIAL_LINKS.map(({ title, icon, url }) => (
+               <Tooltip key={title} title={title} arrow enterTouchDelay={0}>
+                  <IconButton
+                     component="a"
+                     href={url}
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     aria-label={`Enlace a ${title}`}
+                     sx={iconButtonStyles}
+                  >
+                     {icon}
+                  </IconButton>
+               </Tooltip>
+            ))}
          </Stack>
       </Box>
    );
-};
+});

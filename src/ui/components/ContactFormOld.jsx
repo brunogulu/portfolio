@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { Box, Button, TextField } from '@mui/material';
 import emailjs from '@emailjs/browser';
-import customTheme from '../../theme/customTheme';
+import customTheme from '../../theme/customThemeOld';
 import { useSnackbar } from 'notistack';
 
 export const Form = () => {
