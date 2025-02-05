@@ -7,3 +7,5 @@ export * from './CustomAccordion';
 //export * from './CustomAccordionOld';
 export * from './ContactForm';
 //export * from './ContactFormOld';
+export * from './Loader';
+export * from './ErrorDisplay';
