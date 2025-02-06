@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import { PortfolioLayoutResponsive } from '../layout/PortfolioLayoutResponsive';
+import { PortfolioLayoutComponent } from '../layout/PortfolioLayout';
 import {
    ContactoView,
    HabilidadesView,
@@ -34,8 +34,8 @@ export const PortfolioPage = () => {
    const ViewComponent = useMemo(() => views[index] || DefaultView, [index]);
 
    return (
-      <PortfolioLayoutResponsive getData={handleNavIndexChange}>
+      <PortfolioLayoutComponent getData={handleNavIndexChange}>
          <ViewComponent viewBoxStyle={viewBoxStyle} />
-      </PortfolioLayoutResponsive>
+      </PortfolioLayoutComponent>
    );
 };

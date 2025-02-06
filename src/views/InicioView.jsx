@@ -1,6 +1,5 @@
 import { Box, Stack, Typography, IconButton } from '@mui/material';
 import { FileDownloadOutlined } from '@mui/icons-material';
-import customTheme from '../theme/customTheme';
 
 export const InicioView = ({ viewBoxStyle }) => {
    return (
@@ -36,12 +35,7 @@ export const InicioView = ({ viewBoxStyle }) => {
                Mi Stack
             </Typography>
 
-            <Typography
-               component="span"
-               mx={3}
-               color="text.secondary"
-               aria-hidden="true"
-            >
+            <Typography component="span" mx={3} aria-hidden="true">
                |
             </Typography>
 
