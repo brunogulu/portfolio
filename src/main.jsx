@@ -1,13 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { PortfolioApp } from './PortfolioApp';
 import './styles.scss';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-   <React.StrictMode>
+const root = createRoot(document.getElementById('root'));
+
+root.render(
+   <StrictMode>
       <BrowserRouter>
-            <PortfolioApp />
+         <PortfolioApp />
       </BrowserRouter>
-   </React.StrictMode>
+   </StrictMode>
 );

@@ -1,30 +1,46 @@
-import React from 'react';
+import React, { useMemo, memo } from 'react';
 import { Box } from '@mui/material';
 import { Footer, Navbar } from '../ui/components';
 import video from '../assets/video.mp4';
 
-export const PortfolioLayout = ({ getData, children }) => {
+export const PortfolioLayoutComponent = ({ getData, children }) => {
+   const outerStyles = useMemo(
+      () => ({
+         bgcolor: 'background.dark',
+         minHeight: '100vh',
+      }),
+      []
+   );
+
+   const navFooterStyles = useMemo(
+      () => ({
+         position: 'relative',
+         zIndex: 1,
+         width: '100%',
+      }),
+      []
+   );
+
    return (
-      <Box
-         display="flex"
-         flexDirection="column"
-         sx={{ bgcolor: 'background.dark', minHeight: '100vh' }}
-      >
-         {/* Background */}
-         <video id="videoBg" autoPlay muted aria-label="www.vecteezy.com video">
+      <Box display="flex" flexDirection="column" sx={outerStyles}>
+         <video
+            id="videoBg"
+            autoPlay
+            muted
+            aria-label="www.vecteezy.com video"
+            role="presentation"
+         >
             <source src={video} type="video/mp4" />
          </video>
 
-         {/* Navbar */}
-         <Box>
+         <Box sx={navFooterStyles}>
             <Navbar getIndex={getData} />
          </Box>
 
-         {/* View */}
          <Box
             component="main"
             display="flex"
-            flex="1"
+            flex={1}
             flexDirection="column"
             alignItems="center"
             justifyContent="top"
@@ -32,10 +48,11 @@ export const PortfolioLayout = ({ getData, children }) => {
             {children}
          </Box>
 
-         {/* Footer */}
-         <Box>
+         <Box sx={navFooterStyles}>
             <Footer />
          </Box>
       </Box>
    );
 };
+
+export const PortfolioLayout = memo(PortfolioLayoutComponent);

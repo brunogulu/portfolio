@@ -1,188 +1,144 @@
 import { createTheme } from '@mui/material/styles';
 
-const customColor = '#004D40'; // Cambiar también en styles.scss
+// Constantes reutilizables
+const COLOR = {
+   PRIMARY: '#fff',
+   SECONDARY: '#000',
+   CUSTOM: '#004D40', // Actualizar también en styles.scss
+   FOOTER_TEXT: 'rgba(255, 255, 255, 0.75)',
+};
+
+const FONT_FAMILIES = {
+   MAIN: ['Montserrat', '"Helvetica Neue"', 'Arial', 'sans-serif'].join(','),
+   SECONDARY: '"Old Standard TT"',
+   ACCENT: '"Exo 2"',
+};
+
+const TYPOGRAPHY_COMMON = {
+   H1: {
+      fontWeight: 700,
+      letterSpacing: '-0.06em',
+      '@media (max-width:900px)': { fontSize: '3.6rem', lineHeight: '3.3rem' },
+   },
+   BUTTON: {
+      fontFamily: FONT_FAMILIES.ACCENT,
+      fontWeight: 300,
+      letterSpacing: '0.04em',
+   },
+   NAV_LINKS: {
+      letterSpacing: '0.02em',
+      fontFamily: FONT_FAMILIES.ACCENT,
+      fontWeight: 300,
+      textTransform: 'uppercase',
+   },
+};
+
+// Configuración común de componentes
+const COMPONENT_STYLES = {
+   INPUT: {
+      color: COLOR.PRIMARY,
+      '& .MuiOutlinedInput-notchedOutline': { borderColor: COLOR.PRIMARY },
+      '&:hover .MuiOutlinedInput-notchedOutline': {
+         borderColor: COLOR.PRIMARY,
+         opacity: 0.8,
+      },
+      '&.Mui-error .MuiOutlinedInput-notchedOutline': {
+         borderColor: 'error.main',
+      },
+   },
+};
 
 const customTheme = createTheme({
    typography: {
-      fontFamily: [
-         'Montserrat',
-         '"Old Standard TT"',
-         '"Exo 2"',
-         '"Helvetica Neue"',
-         'Arial',
-         'sans-serif',
-      ].join(','),
-
+      fontFamily: FONT_FAMILIES.MAIN,
       h1: {
+         ...TYPOGRAPHY_COMMON.H1,
          fontSize: '3.56rem',
-         fontWeight: '700',
-         letterSpacing: '-0.06em',
          lineHeight: '3.5rem',
-         '@media (max-width:900px)': {
-            fontSize: '3.6rem',
-            lineHeight: '3.3rem',
-         },
       },
-
       h2: {
          fontSize: '4.25rem',
-         fontWeight: '400',
+         fontWeight: 400,
          letterSpacing: '-0.02em',
          lineHeight: '5.1rem',
       },
-
-      h3: {
-         fontSize: '1.4rem',
-         fontWeight: '300',
-      },
-
-      h4: {
-         fontSize: '1rem',
-         fontWeight: 'bold',
-      },
-
+      h3: { fontSize: '1.4rem', fontWeight: 300 },
+      h4: { fontSize: '1rem', fontWeight: 'bold' },
       subtitle1: {
-         lineHeight: '3rem',
-         fontFamily: '"Old Standard TT"',
+         fontFamily: FONT_FAMILIES.SECONDARY,
          fontSize: '2rem',
-         fontWeight: '400',
+         lineHeight: '3rem',
+         fontWeight: 400,
       },
-
       body1: {
-         fontFamily: '"Exo 2"',
+         fontFamily: FONT_FAMILIES.ACCENT,
          fontSize: '1.1rem',
          fontStyle: 'italic',
          lineHeight: '1.4rem',
       },
-
       button: {
+         ...TYPOGRAPHY_COMMON.BUTTON,
          color: 'white',
-         fontFamily: '"Exo 2"',
-         fontWeight: '300',
          fontSize: '0.97rem',
-         letterSpacing: '0.04em',
       },
-
       navLinks: {
-         color: '#fff',
-         letterSpacing: '0.02em',
+         ...TYPOGRAPHY_COMMON.NAV_LINKS,
+         color: COLOR.PRIMARY,
          lineHeight: '5rem',
-         fontFamily: '"Exo 2"',
          fontSize: '1.05rem',
-         fontWeight: '300',
-         textTransform: 'uppercase',
       },
-
       logo: {
          letterSpacing: '-0.06em',
          fontFamily: 'Montserrat',
          fontSize: '1.45rem',
-         fontWeight: '700',
+         fontWeight: 700,
       },
-
       footer: {
-         color: 'rgba(255, 255, 255, 0.75)',
+         color: COLOR.FOOTER_TEXT,
          fontFamily: 'Montserrat',
          fontSize: '0.78rem',
-         fontWeight: '300',
+         fontWeight: 300,
       },
    },
 
    palette: {
       primary: {
-         light: '#fff',
-         main: '#fff',
-         dark: '#000',
+         light: COLOR.PRIMARY,
+         main: COLOR.PRIMARY,
+         dark: COLOR.SECONDARY,
       },
-      custom: {
-         main: customColor,
-      },
+      custom: { main: COLOR.CUSTOM },
    },
 
    components: {
-      MuiButtonBase: {
-         defaultProps: {
-            // disableRipple: true,
-         },
-      },
-
       MuiTooltip: {
-         defaultProps: {
-            componentsProps: {
-               tooltip: {
-                  sx: {
-                     bgcolor: 'primary.light',
-                     color: 'primary.dark',
-                  },
-               },
-
-               arrow: {
-                  sx: {
-                     color: 'primary.main',
-                  },
-               },
-            },
+         styleOverrides: {
+            tooltip: { backgroundColor: COLOR.PRIMARY, color: COLOR.SECONDARY },
+            arrow: { color: COLOR.PRIMARY },
          },
       },
-
       MuiTextField: {
          defaultProps: {
             size: 'small',
             fullWidth: true,
-            inputProps: {
-               autoComplete: 'off',
-               'aria-autocomplete': 'none',
-            },
-            sx: {
-               color: 'primary.light',
-            },
+            inputProps: { autoComplete: 'off', 'aria-autocomplete': 'none' },
          },
+         styleOverrides: { root: { color: COLOR.PRIMARY } },
       },
-
       MuiInputLabel: {
-         defaultProps: {
-            sx: {
-               color: 'primary.light',
-               fontStyle: 'normal',
-               fontWeight: '600',
-               '& .MuiInputLabel-asterisk': {
-                  visibility: 'hidden',
-               },
+         styleOverrides: {
+            root: {
+               color: COLOR.PRIMARY,
+               fontWeight: 600,
+               '& .MuiInputLabel-asterisk': { visibility: 'hidden' },
             },
          },
       },
-
-      MuiOutlinedInput: {
-         defaultProps: {
-            sx: {
-               '& .MuiOutlinedInput-input': {
-                  color: 'primary.light',
-               },
-               '& .MuiOutlinedInput-notchedOutline': {
-                  borderColor: 'primary.light',
-               },
-               '&:hover .MuiOutlinedInput-notchedOutline': {
-                  borderColor: 'primary.light',
-                  opacity: '0.8',
-               },
-               '&.Mui-error .MuiOutlinedInput-notchedOutline': {
-                  borderColor: 'error.main', // Color de borde en estado de error
-               },
-               '&.Mui-error:hover .MuiOutlinedInput-notchedOutline': {
-                  borderColor: 'error.main', // Color de borde en estado de error durante hover
-                  opacity: '0.8', // Mantener la opacidad ajustada durante hover
-               },
-            },
-         },
-      },
-
+      MuiOutlinedInput: { styleOverrides: { root: COMPONENT_STYLES.INPUT } },
       MuiIconButton: {
-         defaultProps: {
-            sx: {
-               '&:hover': {
-                  bgcolor: 'transparent',
-                  color: 'inherit',
-               },
+         styleOverrides: {
+            root: {
+               '&:hover': { backgroundColor: 'transparent', color: 'inherit' },
             },
          },
       },
